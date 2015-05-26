@@ -23,25 +23,33 @@ get_header(); ?>
 
 			<header class="page-header container">
 				<h1 class="col-xs-12 col-md-7 col-lg-push-1">We work best collaboratively</h1>
-				<p class="col-xs-12 col-md-7 col-lg-push-1"><?php echo $team_description; ?></p>
+				<p class="col-xs-12 col-md-7 col-lg-push-1 lead"><?php echo $team_description; ?></p>
 			</header><!-- .page-header -->
 
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
+			<?php 
+				$custom = get_post_custom($post->ID);
+				$job_title = $custom["_job_title"][0];
+
+			?>
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class('col-md-3'); ?>>
 
 				<?php 
 				if ( has_post_thumbnail() ) { ?>
 					<figure>
-					<figcaption><?php the_title(); ?></figcaption>
 					<a href="<?php echo get_permalink(); ?>">
 					<?php echo the_post_thumbnail(); ?>
 					</a>
 					</figure>
 				<?php }
 				?>
+				<header>
+					<h1 class="h2"><?php the_title(); ?></h1>
+					<h2 class="h3"><?php echo $job_title; ?></h2>
+				</header>
 				<div class="short-bio"><?php echo the_excerpt(); ?>
 				<a class="btn wide" href="<?php echo get_permalink(); ?>">
 					Contact <?php 

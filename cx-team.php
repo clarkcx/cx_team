@@ -145,7 +145,7 @@ function create_profile_tax_skills() {
 			'hierarchical' => true,
 			'label' => __( 'Skills' ),
 			'labels' => $labels,
-			'rewrite' => array( 'slug' => 'skills' )
+			'rewrite' => array( 'slug' => 'skills', 'with_front'=> false )
 		)
 	);
 }
@@ -157,9 +157,10 @@ add_action( 'init', 'create_profile_tax_skills' );
 * Custom templates
 *************************************/
 
-add_filter('template_include', 'team_template');
+add_filter('template_include', 'team_template_archive');
+add_filter('template_include', 'team_template_post');
 
-function team_template( $template ) {
+function team_template_archive( $template ) {
   if ( is_post_type_archive('profiles') ) {
     $theme_files = array('archive-team.php', 'cx_team/archive-team.php');
     $exists_in_theme = locate_template($theme_files, false);
@@ -167,6 +168,18 @@ function team_template( $template ) {
       return $exists_in_theme;
     } else {
       return plugin_dir_path(__FILE__) . 'archive-team.php';
+    }
+  }
+  return $template;
+}
+function team_template_post( $template ) {
+  if ( is_singular('profiles') ) {
+    $theme_files = array('single-profiles.php', 'cx_portfolio/single-profiles.php');
+    $exists_in_theme = locate_template($theme_files, false);
+    if ( $exists_in_theme != '' ) {
+      return $exists_in_theme;
+    } else {
+      return plugin_dir_path(__FILE__) . 'single-profiles.php';
     }
   }
   return $template;
@@ -185,5 +198,6 @@ function change_profile_display_order( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'change_profile_display_order', 1 );
+
 
 ?>
