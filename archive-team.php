@@ -34,7 +34,7 @@ get_header(); ?>
 
 				<?php 
 				if ( has_post_thumbnail() ) { ?>
-					<figure class="excerpt">
+					<figure>
 					<figcaption><?php the_title(); ?></figcaption>
 					<a href="<?php echo get_permalink(); ?>">
 					<?php echo the_post_thumbnail(); ?>
@@ -42,14 +42,16 @@ get_header(); ?>
 					</figure>
 				<?php }
 				?>
-				<?php echo the_excerpt(); ?>
-				
-				<div class="cx_block excerpt">
-				<header class="entry-header">
-					
-				</header><!-- .entry-header -->
-
-				</div><!-- .cx_block -->
+				<div class="short-bio"><?php echo the_excerpt(); ?>
+				<a class="btn wide" href="<?php echo get_permalink(); ?>">
+					Contact <?php 
+						$full_name = get_the_title();
+						$pieces = explode(" ", $full_name);
+						$first_name = $pieces[0];
+						echo $first_name; 
+					?>
+				</a>
+				</div><!-- .short-bio -->
 
 			</article><!-- #post-## -->
 
