@@ -43,7 +43,7 @@ In order to keep us up-to-date with our industry, or just to get out and be insp
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		'menu_position' => null,
-		'supports' => array('title','editor','thumbnail','custom-fields','page-attributes'),
+		'supports' => array('title','editor','excerpt','thumbnail','custom-fields','page-attributes'),
 		//'taxonomies' => array(''),
 		'register_meta_box_cb' => 'add_profiles_metaboxes',
 		'has_archive' => true

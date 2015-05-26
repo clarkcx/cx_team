@@ -39,6 +39,7 @@ get_header(); ?>
 					<a href="<?php echo get_permalink(); ?>">
 					<?php echo the_post_thumbnail(); ?>
 					</a>
+					<?php echo the_excerpt(); ?>
 					</figure>
 				<?php }
 				?>
