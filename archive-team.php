@@ -21,12 +21,15 @@ get_header(); ?>
 				$team_description = $cpt_team->description;
 			?>
 
-			<header class="page-header container">
-				<h1 class="col-xs-12 col-md-7 col-lg-push-1">We work best collaboratively</h1>
-				<p class="col-xs-12 col-md-7 col-lg-push-1 lead"><?php echo $team_description; ?></p>
+			<div class="row">
+			<header class="page-header">
+				<h1 class="col-xs-12 col-md-10 col-md-push-1 no-pad-l no-pad-r">We work best collaboratively</h1>
+				<p class="col-xs-12 col-md-10 col-md-push-1 lead no-pad-l no-pad-r"><?php echo $team_description; ?></p>
 			</header><!-- .page-header -->
 
+		</div><!-- .row -->
 
+			<div class="row no-pad-l no-pad-r">
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 			<?php 
@@ -39,7 +42,7 @@ get_header(); ?>
 
 				<?php 
 				if ( has_post_thumbnail() ) { ?>
-					<figure>
+					<figure class="profile-photo">
 					<a href="<?php echo get_permalink(); ?>">
 					<?php echo the_post_thumbnail(); ?>
 					</a>
@@ -72,6 +75,8 @@ get_header(); ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
+
+		</div><!-- .row -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

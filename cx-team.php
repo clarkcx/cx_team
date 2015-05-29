@@ -72,7 +72,10 @@ function cx_profile_info() {
 	$profile_job_title = get_post_meta($post->ID, '_job_title', true);
 	$profile_email = get_post_meta($post->ID, '_email', true);
 	$profile_url = get_post_meta($post->ID, '_url', true);
+	$profile_url_title = get_post_meta($post->ID, '_url_title', true);
 	$profile_twitter = get_post_meta($post->ID, '_twitter', true);
+	$profile_instagram = get_post_meta($post->ID, '_instagram', true);
+	$profile_linkedin = get_post_meta($post->ID, '_linkedin', true);
 	$profile_github = get_post_meta($post->ID, '_github', true);
 	
 	// Echo out the field
@@ -80,10 +83,16 @@ function cx_profile_info() {
 	echo '<input type="text" name="_job_title" value="' . $profile_job_title . '" class="widefat" />';
 	echo '<p>Email:</p>';
 	echo '<input type="text" name="_email" value="' . $profile_email . '" class="widefat" />';
-	echo '<p>URL:</p>';
+	echo '<p>External URL:</p>';
 	echo '<input type="text" name="_url" value="' . $profile_url . '" class="widefat" />';
+	echo '<p>External URL title:</p>';
+	echo '<input type="text" name="_url_title" value="' . $profile_url_title . '" class="widefat" />';
 	echo '<p>Twitter:</p>';
 	echo '<input type="text" name="_twitter" value="' . $profile_twitter . '" class="widefat" />';
+	echo '<p>Instagram:</p>';
+	echo '<input type="text" name="_instagram" value="' . $profile_instagram . '" class="widefat" />';
+	echo '<p>LinkedIn:</p>';
+	echo '<input type="text" name="_linkedin" value="' . $profile_linkedin . '" class="widefat" />';
 	echo '<p>GitHib:</p>';
 	echo '<input type="text" name="_github" value="' . $profile_github . '" class="widefat" />';
 	
@@ -108,7 +117,10 @@ function cx_save_profile_meta($post_id, $post) {
 	$profiles_meta['_email'] = $_POST['_email'];
 	$profiles_meta['_job_title'] = $_POST['_job_title'];
 	$profiles_meta['_url'] = $_POST['_url'];
+	$profiles_meta['_url_title'] = $_POST['_url_title'];
 	$profiles_meta['_twitter'] = $_POST['_twitter'];
+	$profiles_meta['_instagram'] = $_POST['_instagram'];
+	$profiles_meta['_linkedin'] = $_POST['_linkedin'];
 	$profiles_meta['_github'] = $_POST['_github'];
 	
 	// Add values of $profiles_meta as custom fields
