@@ -55,7 +55,7 @@ get_header(); ?>
 
 			<div class="container">
 
-			<div class="col-md-3 col-md-offset-1">
+			<div class="col-xs-9 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1">
 			<?php 
 				if ( has_post_thumbnail() ) {
 					echo '<figure class="profile-photo">';
@@ -65,7 +65,7 @@ get_header(); ?>
 			?>
 			</div>
 
-			<div class="col-md-3">
+			<div class="col-xs-12 col-md-4 col-lg-4">
 			<?php 
 				
 				
@@ -93,7 +93,7 @@ get_header(); ?>
 			?>
 			</div>
 
-			<div class="skills col-md-3 col-md-offset-1">
+			<div class="skills col-xs-6 col-md-3 col-md-offset-1">
 		
 				<?php 
 
